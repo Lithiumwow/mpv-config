@@ -11,16 +11,34 @@ Fork of [dyphire/mpv-config](https://github.com/dyphire/mpv-config) (`eng` branc
 | **HDR key bindings** | `SHIFT+h` toggle Windows HDR · `CTRL+ALT+h` enable · `CTRL+ALT+H` disable |
 | **hdr-mode options** | `script-opts/hdr-mode.conf` (default `hdr_mode=noth`; set `switch` or `pass` to enable automation) |
 | **English docs** | README rewritten in English with a clear changelog for this fork |
+| **install.bat** | One-click installer for chocolatey mpv `portable_config` (or a custom mpv folder / `--appdata`) |
 
 Requires **mpv ≥ 0.37.0** with **cplugins** enabled (standard Windows builds such as shinchiro / chocolatey `mpvio` usually include this).
 
-### Install on this machine (chocolatey mpv)
+### Quick install (Windows)
 
-This install uses portable config next to the binary:
+Download and run [`install.bat`](https://github.com/Lithiumwow/mpv-config/blob/eng/install.bat) from this repo (or run it from a local clone).
+
+```bat
+install.bat
+```
+
+That installs into:
 
 `C:\ProgramData\chocolatey\lib\mpvio.install\tools\portable_config\`
 
-That overrides `%APPDATA%\mpv`. After a chocolatey mpv upgrade, re-copy this folder if the package replaces the tools directory.
+(Admin prompt appears because that path is under ProgramData.)
+
+Other options:
+
+```bat
+install.bat "D:\path\to\folder\containing\mpv.exe"
+install.bat --appdata
+```
+
+`--appdata` installs to `%APPDATA%\mpv` instead. `portable_config` next to `mpv.exe` overrides AppData when both exist.
+
+After a chocolatey mpv upgrade, run `install.bat` again if `portable_config` was removed.
 
 ### Project introduction
 
